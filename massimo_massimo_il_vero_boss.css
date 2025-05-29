@@ -57,17 +57,6 @@
     font-size: 3vh;
     font-style: normal; 
 }
-.slider .item img {
-    width: 80%; /* Imposta la larghezza dell'immagine al 80% */
-    height: auto; /* Mantieni il rapporto di aspetto originale */
-    padding: 10px; /* Spaziatura interna per evitare che le immagini tocchino i bordi */
-}
-
-.el_bellicoso, .oh_massimo, .el_toro, .il_boss {
-    width: 70%; /* Modifica la larghezza dell'immagine a 70% */
-    height: auto; /* Mantieni il rapporto di aspetto originale */
-}
-
 .el_bellicoso, .oh_massimo, .el_toro, .il_boss {
     width: 430vw; /* Imposta la larghezza dell'immagine a 70% del suo contenitore */
     height: 580.3vh; /* Mantieni il rapporto di aspetto originale */
