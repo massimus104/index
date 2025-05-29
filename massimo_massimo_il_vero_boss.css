@@ -7,7 +7,7 @@
 .h1 {
     font-family: "Poppins", serif;
     font-weight: 600;
-    color:white;
+    color: white;
     font-style: normal;
     text-align: center;
 }
@@ -16,12 +16,13 @@
     font-size: 34px; /* Regola la grandezza */
     font-weight: 700; /* Spessore del font */
     text-align: center;
+    color: white;
     margin: 20px 0;
     color: #333; /* Puoi cambiare il colore se vuoi */
 }
 .h2 {
     font-family: "Poppins", serif;
-    color: black;
+    color: white;
     font-weight: 400;
     font-style: normal;
     font-size: 2vh;
@@ -31,7 +32,7 @@
 }
 .h2_2 {
     font-family: "Poppins", serif;
-    color: black;
+    color: white;
     font-weight: 400;
     font-style: normal;
     font-size: 2vh;
@@ -41,7 +42,7 @@
 }
 .h2_3 {
     font-family: "Poppins", serif;
-    color: black;
+    color: white;
     font-weight: 400;
     font-style: normal;
     font-size: 2vh;
@@ -50,6 +51,7 @@
     right: 16.5vw;
 }
 .p{
+    color: white;
     font-family: "Roboto", serif;
     font-weight: 300;
     font-size: 3vh;
