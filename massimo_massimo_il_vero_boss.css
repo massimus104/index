@@ -107,18 +107,6 @@
         opacity: 1
     }
 }
-
-.item_col_2 {
-    columns: 2;
-    background-image: url('lo_sfondo_2.jpg');
-    background-size: no-repeat;
-    background-position: center;
-    background-size: cover;
-    height: 60vh;
-    align-self: center;
-    background-size: cover;
-}
-
 .arrow_mobile {
     display: none;
 }
