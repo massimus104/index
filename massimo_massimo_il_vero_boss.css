@@ -1,3 +1,8 @@
+background{
+     width: auto;
+      height: auto;
+      background-image: url("nao.png");
+}
 .h1 {
     font-family: "Poppins", serif;
     font-weight: 600;
