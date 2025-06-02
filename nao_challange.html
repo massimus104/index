@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="nao.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="massimo_massimo_il_vero_boss.css">
+    <title>Nao4Chess</title>
+    <style>
+        /* Stile per le immagini nelle slide */
+        .slider {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            right: 25%;
+            top: 3vh;
+            width: 74%;  /* Regola la larghezza della slider */
+            max-width: 740px; /* Evita che diventi troppo grande */
+            margin: auto;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .item {
+            display: none; /* Nasconde tutte le slide tranne quella attiva */
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .item_col_2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .item img {
+            width: 100%; /* Le immagini occupano tutta la larghezza della slide */
+            height: auto; /* Mantiene il rapporto di aspetto */
+            max-height: 500px; /* Limita l'altezza massima */
+            object-fit: contain; /* Evita distorsioni */
+            border-radius: 10px;
+        }
+
+        .arrow_mobile {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .arrow_mobile a {
+            cursor: pointer;
+            font-size: 2rem;
+            color: black;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 5px 10px;
+            border-radius: 50%;
+            text-decoration: none;
+        }
+
+        .button-scheda {
+            margin: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        #schedaContainer {
+            border: 1px solid #ccc;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            left: 50%;
+            top: 8vh;
+            margin: 4vh;
+            border: 0;
+        }
+    </style>
+</head>
+<body class="body">
+    <h1 class="h_1">Nao4Chess</h1>
+
+    <div class="slider">
+        <div class="item">
+            <div class="item_col_2">
+                <img src="massimo_massimo.jpg" class="el_bellicoso">
+            </div>           
+        </div>
+
+        <div class="item">
+            <div class="item_col_2">
+                <img src="il_bellicoso.jpg" class="oh_massimo">
+            </div>           
+        </div>
+        
+        <div class="item">
+            <div class="item_col_2">
+                <img src="el_boss.JPG" class="el_toro">
+            </div>           
+        </div>
+
+        <div class="item">
+            <div class="item_col_2">
+                <img src="oh_massimo_massimo_il_vero_boss.jpg" class="il_boss">
+            </div>           
+        </div>
+
+        <div class="item">
+            <div class="item_col_2">
+                <img src="collega.jpg" class="">
+            </div>           
+        </div>
+
+        <div class="item">
+            <div class="item_col_2">
+                <img src="collega_2.jpg" class="el_bellicoso">
+            </div>           
+        </div>
+
+        <div class="arrow_mobile">
+            <a class="previous_mobile" onclick="previousSlide()">&#10094;</a>
+            <a class="next_mobile" onclick="nextSlide()">&#10095;</a>
+        </div>
+    </div>
+
+    <button class="button-scheda h2 first_presentation" onclick="toggleScheda('el_toro.html')">Chi siamo?</button>
+    <button class="button-scheda h2_2 first_presentation" onclick="toggleScheda('el_toro_1.html')">Steps</button>
+    <button class="button-scheda h2_3 first_presentation" onclick="toggleScheda('el_toro_2.html')">Partner</button>
+    
+    <div id="schedaContainer" class="div">
+        <!-- Qui apparirà l'iframe -->
+    </div>
+
+    <script>
+        let slideIndex = 1;
+
+        // Mostra la prima slide all'avvio
+        document.addEventListener("DOMContentLoaded", function() {
+            showSlides(slideIndex);
+        });
+
+        function nextSlide() {
+            showSlides(slideIndex += 1);
+        }
+
+        function previousSlide() {
+            showSlides(slideIndex -= 1);  
+        }
+
+        function showSlides(n) {
+            let slides = document.getElementsByClassName("item");
+            if (n > slides.length) { slideIndex = 1; }
+            if (n < 1) { slideIndex = slides.length; }
+            
+            for (let slide of slides) {
+                slide.style.display = "none";
+            }
+
+            slides[slideIndex - 1].style.display = "flex";    
+        }
+
+        // Ascolta gli eventi della tastiera per i tasti 6 (avanti) e 4 (indietro)
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "6") {  // Tasto 6 per andare avanti
+                nextSlide();
+            }
+            if (event.key === "4") {  // Tasto 4 per andare indietro
+                previousSlide();
+            }
+        });
+
+        var schedaAperta = null;
+
+        function toggleScheda(file) {
+            if (schedaAperta === file) {
+                chiudiScheda();
+            } else {
+                if (schedaAperta !== null) {
+                    chiudiScheda();
+                }
+                apriScheda(file);
+            }
+        }
+
+        function apriScheda(file) {
+            var iframe = document.createElement("iframe");
+            iframe.src = file;
+            iframe.width = "700";
+            iframe.height = "530";
+            iframe.style.margin = "0 2%";
+            iframe.style.borderRadius = "15px";
+            iframe.style.border = "2px solid #ccc";
+            iframe.style.boxShadow = "5px 5px 15px rgba(0, 0, 0, 0.3)";
+
+            document.getElementById("schedaContainer").appendChild(iframe);
+            schedaAperta = file;
+        }
+
+        function chiudiScheda() {
+            var container = document.getElementById("schedaContainer");
+            while (container.firstChild) {
+                container.removeChild(container.firstChild);
+            }
+            schedaAperta = null;
+        }
+    </script>
+</body>
+</html>
